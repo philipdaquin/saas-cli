@@ -1,0 +1,62 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<saas-cli-debug.exe>","<saas-cli-debug.module>"]
+  "saas-cli-debug.exe": ["<saas-cli-debug.exe>"]
+  "saas-cli-debug.module": ["<saas-cli-debug.module>"]
+  "test": ["<saas-cli-debug.exe>","<saas-cli-debug.module>"]
+default: "main"
+nodes:
+  "/tmp/test-saas/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/saas_cli.swiftmodule.o":
+    tool: shell
+    inputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"]
+    outputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/saas_cli.swiftmodule.o"]
+    description: "Wrapping AST for saas-cli for debugging"
+    args: ["/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc","-modulewrap","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule","-o","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/saas_cli.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "<saas-cli-debug.exe>":
+    tool: phony
+    inputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas-cli"]
+    outputs: ["<saas-cli-debug.exe>"]
+
+  "<saas-cli-debug.module>":
+    tool: phony
+    inputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"]
+    outputs: ["<saas-cli-debug.module>"]
+
+  "C.saas-cli-debug.exe":
+    tool: shell
+    inputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/saas_cli.swiftmodule.o"]
+    outputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas-cli"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/saas-cli"
+    args: ["/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc","-L","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug","-o","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas-cli","-module-name","saas_cli","-emit-executable","-Xlinker","--defsym","-Xlinker","main=saas_cli_main","-Xlinker","-rpath=$ORIGIN","@/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas-cli.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu"]
+
+  "C.saas-cli-debug.module":
+    tool: swift-compiler
+    inputs: ["/tmp/test-saas/Sources/main.swift"]
+    outputs: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"]
+    executable: "/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc"
+    module-name: "saas_cli"
+    module-output-path: "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"
+    import-paths: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build"
+    objects: ["/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j2","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","saas_cli_main","-Xcc","-fPIC","-package-name","test_saas","-Xcc","-fno-omit-frame-pointer"]
+    sources: ["/tmp/test-saas/Sources/main.swift"]
+    is-library: false
+    enable-whole-module-optimization: false
+    num-threads: 2
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/tmp/test-saas/Sources/","/tmp/test-saas/Package.swift","/tmp/test-saas/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

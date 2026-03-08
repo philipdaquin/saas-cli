@@ -1,0 +1,136 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.saas-cli-debug.module" : {
+      "executable" : "/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc",
+      "importPath" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/tmp/test-saas/Sources/main.swift"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "saas_cli",
+      "moduleOutputPath" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule",
+      "objects" : [
+        "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-swift-version",
+        "5",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-g",
+        "-j2",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "saas_cli_main",
+        "-Xcc",
+        "-fPIC",
+        "-package-name",
+        "test_saas",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/tmp/test-saas/Sources/main.swift"
+      ],
+      "tempsPath" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "saas_cli" : [
+      "/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc",
+      "-module-name",
+      "saas_cli",
+      "-package-name",
+      "test_saas",
+      "-incremental",
+      "-c",
+      "/tmp/test-saas/Sources/main.swift",
+      "-I",
+      "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-swift-version",
+      "5",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-g",
+      "-j2",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "saas_cli_main",
+      "-Xcc",
+      "-fPIC",
+      "-package-name",
+      "test_saas",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "saas_cli" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  }
+}
