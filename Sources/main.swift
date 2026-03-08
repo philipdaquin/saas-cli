@@ -77,6 +77,7 @@ func runNew(name: String, options: [String]) throws {
         "@supabase/supabase-js": "^2.39.0",
         "stripe": "^14.14.0",
         "resend": "^3.2.0",
+        "posthog-node": "^3.2.0",
         "lucide-react": "^0.312.0",
         "clsx": "^2.1.0",
         "tailwind-merge": "^2.2.0"
@@ -125,6 +126,10 @@ func runNew(name: String, options: [String]) throws {
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
     RESEND_API_KEY=re_...
     NEXT_PUBLIC_APP_URL=http://localhost:3000
+    
+    # Analytics (Optional)
+    # NEXT_PUBLIC_POSTHOG_KEY=your_posthog_key
+    # NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
     """.write(toFile: "\(projectPath)/.env.example", atomically: true, encoding: .utf8)
     
     // app/layout.tsx
@@ -185,9 +190,10 @@ func runNew(name: String, options: [String]) throws {
 func runList() {
     print("""
     \(Colors.bold)Available Services:\(Colors.reset)
-    \(Colors.cyan)supabase\(Colors.reset) - Auth + Database
-    \(Colors.cyan)stripe\(Colors.reset) - Payments
-    \(Colors.cyan)resend\(Colors.reset) - Email
+    \(Colors.cyan)supabase\(Colors.reset)     - Auth + Database
+    \(Colors.cyan)stripe\(Colors.reset)      - Payments
+    \(Colors.cyan)resend\(Colors.reset)      - Email
+    \(Colors.cyan)analytics\(Colors.reset)   - Analytics (PostHog, Mixpanel, Amplitude)
     """)
 }
 
@@ -208,6 +214,26 @@ func runAdd(service: String) {
         print("\(Colors.green)✅ Resend added!\(Colors.reset)")
         print("Add to .env.local:")
         print("  RESEND_API_KEY=re_...")
+    case "analytics", "posthog":
+        print("\(Colors.green)✅ PostHog Analytics added!\(Colors.reset)")
+        print("Add to .env.local:")
+        print("  NEXT_PUBLIC_POSTHOG_KEY=...")
+        print("  NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com")
+        print("")
+        print("Packages added: posthog-node")
+    case "mixpanel":
+        print("\(Colors.green)✅ Mixpanel Analytics added!\(Colors.reset)")
+        print("Add to .env.local:")
+        print("  MIXPANEL_TOKEN=...")
+        print("")
+        print("Packages added: mixpanel")
+    case "amplitude":
+        print("\(Colors.green)✅ Amplitude Analytics added!\(Colors.reset)")
+        print("Add to .env.local:")
+        print("  AMPLITUDE_API_KEY=...")
+        print("  AMPLITUDE_SECRET_KEY=...")
+        print("")
+        print("Packages added: @amplitude/analytics-browser")
     default:
         print("\(Colors.yellow)Unknown service: \(service)\(Colors.reset)")
         print("Available: stripe, supabase, resend")
