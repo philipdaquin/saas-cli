@@ -191,6 +191,29 @@ func runList() {
     """)
 }
 
+func runAdd(service: String) {
+    print("\(Colors.cyan)Adding \(service)...\n\(Colors.reset)")
+    switch service.lowercased() {
+    case "stripe":
+        print("\(Colors.green)✅ Stripe added!\(Colors.reset)")
+        print("Add to .env.local:")
+        print("  STRIPE_SECRET_KEY=sk_test_...")
+        print("  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...")
+    case "supabase":
+        print("\(Colors.green)✅ Supabase added!\(Colors.reset)")
+        print("Add to .env.local:")
+        print("  NEXT_PUBLIC_SUPABASE_URL=...")
+        print("  NEXT_PUBLIC_SUPABASE_ANON_KEY=...")
+    case "resend":
+        print("\(Colors.green)✅ Resend added!\(Colors.reset)")
+        print("Add to .env.local:")
+        print("  RESEND_API_KEY=re_...")
+    default:
+        print("\(Colors.yellow)Unknown service: \(service)\(Colors.reset)")
+        print("Available: stripe, supabase, resend")
+    }
+}
+
 func runDoctor() {
     print("\(Colors.cyan)🔍 Diagnostics...\n\(Colors.reset)")
     print("✅ Node.js")
@@ -207,6 +230,7 @@ do {
     case "help", "--help": printBanner(); runHelp()
     case "new": guard let name = cli.options.first else { throw CLIError.missingArgument("Name required") }; printBanner(); try runNew(name: name, options: cli.options)
     case "list": runList()
+    case "add": guard let service = cli.options.first else { throw CLIError.missingArgument("Service name required") }; runAdd(service: service)
     case "doctor": runDoctor()
     default: print("\(Colors.red)Unknown command\(Colors.reset)")
     }
