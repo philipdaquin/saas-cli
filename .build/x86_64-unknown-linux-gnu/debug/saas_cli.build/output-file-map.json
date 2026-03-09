@@ -1,11 +1,11 @@
 {
   "": {
-    "swift-dependencies": "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/master.swiftdeps"
+    "swift-dependencies": "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/master.swiftdeps"
   },
-  "/tmp/test-saas/Sources/main.swift": {
-    "dependencies": "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.d",
-    "object": "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o",
-    "swiftmodule": "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main~partial.swiftmodule",
-    "swift-dependencies": "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swiftdeps"
+  "/tmp/saas-cli/Sources/main.swift": {
+    "dependencies": "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.d",
+    "object": "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o",
+    "swiftmodule": "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main~partial.swiftmodule",
+    "swift-dependencies": "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swiftdeps"
   }
 }

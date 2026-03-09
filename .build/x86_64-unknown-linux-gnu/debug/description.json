@@ -19,18 +19,18 @@
   "swiftCommands" : {
     "C.saas-cli-debug.module" : {
       "executable" : "/tmp/swift-5.9.2-RELEASE-ubuntu22.04/usr/bin/swiftc",
-      "importPath" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug",
+      "importPath" : "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug",
       "inputs" : [
         {
           "kind" : "file",
-          "name" : "/tmp/test-saas/Sources/main.swift"
+          "name" : "/tmp/saas-cli/Sources/main.swift"
         }
       ],
       "isLibrary" : false,
       "moduleName" : "saas_cli",
-      "moduleOutputPath" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule",
+      "moduleOutputPath" : "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule",
       "objects" : [
-        "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"
+        "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -39,7 +39,7 @@
         "5",
         "-enable-batch-mode",
         "-index-store-path",
-        "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/index/store",
         "-Onone",
         "-enable-testing",
         "-g",
@@ -47,7 +47,7 @@
         "-DSWIFT_PACKAGE",
         "-DDEBUG",
         "-module-cache-path",
-        "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
         "-parseable-output",
         "-Xfrontend",
         "-entry-point-function-name",
@@ -56,24 +56,24 @@
         "-Xcc",
         "-fPIC",
         "-package-name",
-        "test_saas",
+        "saas_cli",
         "-Xcc",
         "-fno-omit-frame-pointer"
       ],
       "outputs" : [
         {
           "kind" : "file",
-          "name" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"
+          "name" : "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build/main.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"
+          "name" : "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.swiftmodule"
         }
       ],
       "sources" : [
-        "/tmp/test-saas/Sources/main.swift"
+        "/tmp/saas-cli/Sources/main.swift"
       ],
-      "tempsPath" : "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build",
+      "tempsPath" : "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/saas_cli.build",
       "wholeModuleOptimization" : false
     }
   },
@@ -86,19 +86,19 @@
       "-module-name",
       "saas_cli",
       "-package-name",
-      "test_saas",
+      "saas_cli",
       "-incremental",
       "-c",
-      "/tmp/test-saas/Sources/main.swift",
+      "/tmp/saas-cli/Sources/main.swift",
       "-I",
-      "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug",
+      "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug",
       "-target",
       "x86_64-unknown-linux-gnu",
       "-swift-version",
       "5",
       "-enable-batch-mode",
       "-index-store-path",
-      "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/index/store",
       "-Onone",
       "-enable-testing",
       "-g",
@@ -106,7 +106,7 @@
       "-DSWIFT_PACKAGE",
       "-DDEBUG",
       "-module-cache-path",
-      "/tmp/test-saas/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "/tmp/saas-cli/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
       "-parseable-output",
       "-Xfrontend",
       "-entry-point-function-name",
@@ -115,7 +115,7 @@
       "-Xcc",
       "-fPIC",
       "-package-name",
-      "test_saas",
+      "saas_cli",
       "-Xcc",
       "-fno-omit-frame-pointer",
       "-driver-use-frontend-path",

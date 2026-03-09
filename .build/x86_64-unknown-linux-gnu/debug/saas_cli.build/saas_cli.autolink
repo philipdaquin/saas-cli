@@ -2,6 +2,7 @@
 -lswiftCore
 -lswift_Concurrency
 -lswift_StringProcessing
+-lswift_RegexParser
 -lswiftGlibc
 -lBlocksRuntime
 -ldispatch
